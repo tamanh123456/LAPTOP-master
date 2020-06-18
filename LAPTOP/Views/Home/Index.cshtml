@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LAPTOP.Models.Laptop>
+@{
+    ViewBag.Title = "Home Page";
+    
+}
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/css.css" />
+</head>
+<body>
+<div style="text-align:center;width:100%;margin-top:20px;">
+    <button class="button button1"> DANH MỤC SẢN PHẨM</button>
+
+    <button class="button button1"> HƯỚNG DẪN THANH TOÁN</button>
+    <button class="button button1"> CHÍNH SÁCH BẢO HÀNH</button>
+    <button class="button button1"> HƯỚNG DẪN TRẢ GÓP</button>
+</div>
+
+<h2 style="text-align:center;color:red"> DANH SÁCH LAPTOP</h2>
+<div class="row">
+    <table style="width:100%;text-align:center" border="1">
+        <thead>
+            <tr>
+                <th style="text-align:center"> MÃ MÁY</th>
+                <th style="text-align:center"> CPU</th>
+                <th style="text-align:center"> RAM</th>
+                <th style="text-align:center"> HÃNG</th>
+                <th style="text-align:center"> GIÁ</th>
+                <th style="text-align:center"> HÌNH MINH HỌA</th>
+                <th style="text-align:center"> Sửa</th>
+                <th style="text-align:center"> Xóa</th>            </tr>
+        </thead>
+
+
+
+        @foreach (var laptop in Model)
+        {
+    <tr>
+        <td> @laptop.Id</td>
+        <td> @laptop.CPU</td>
+        <td> @laptop.Ram</td>
+        <td> @laptop.Category.Brand</td>
+        <td> @laptop.Price</td>
+        <td> <img src="~/Content/Image_laptop/@laptop.Image_laptop" width="300" /></td>
+        <td> <a href="/Laptops/Edit?Id=@laptop.Id">Edit</a></td>
+        <td><a href="/Laptops/Delete?Id=@laptop.Id">Delete</a></td>
+    </tr>
+
+
+
+        }
+    </table>
+    
+</div>
+
+ </body>
+
